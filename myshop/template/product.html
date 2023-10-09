@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid"><img src="{{c.image.url}}" height="700px" width="100%"></div>
+<div class="container-fluid" style="margin-bottom:100px">
+    <h1 class="text-center" style="font-size: 5em; line-height: 1.2; color:#ffffff;">{{c.name}}</h1>
+    <p style="text-align:center">{{c.description}}</p>
+</div>
+<div class="container" style="margin-bottom:100px;">
+    <div class="row"><br><br>
+        {% for i in product %}
+        <div class=" col-md-3 p-1">
+            <div class="card" style="height:300px;">
+                <img alt="..." class="card-img-top" src="{{i.image.url}}" style="height:300px;">
+                <div class="carousel-caption d-flex justify-content-center align-items-center">
+                <div class="card-body" style="position:relative">
+                 <h4 class="card-title" style="background-color:grey;">{{i.name}}</h4>
+                    <h6 class="card-title" style="text-center;background-color:black;"><strong>PRICE: </strong>{{i.price}}</h6>
+                    <h6 class="card-title" style="text-center;background-color:black;"><strong>STOCK: </strong>{{i.stock}}</h6>
+
+                 <a href="{% url 'shop:prodetail' i.slug %}" class="btn btn-primary" style="position:relative">Products</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+{% endblock %}

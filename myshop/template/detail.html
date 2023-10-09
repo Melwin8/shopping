@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<h1>Product Details</h1>
+<br><br>
+
+
+<div class="container">
+    <div class="row">
+        <div class=" col-md-6 " >
+            <img src="{{p.image.url}}" class="img-top" alt="..." height="100%" width="100%">
+        </div>
+        <div class=" col-md-6 ">
+            <h5 class="card-title" style="text-transform:uppercase;"><b>{{p.name}}</b></h5><br>
+                    <p class="card-text"><b>PRICE: </b>{{p.price}}</p>
+                    <p class="card-text"><b>DESCRITION: </b><i>{{p.description}}</i></p>
+            {% if p.stock <= 0 %}
+                <h2>Out of stock</h2>
+            {% else %}
+                 <a href="{% url 'cart:add_cart' p.id %}" class="btn btn-success">ADD TO CART</a>
+            {% endif %}
+
+
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

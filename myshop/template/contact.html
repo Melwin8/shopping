@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/style3.css' %}">
+<div class="container">
+        <header>
+            <h1>Contact Us</h1>
+        </header>
+        <main>
+            <section class="contact-form">
+                <h2>Contact Information</h2>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 Contact Us</p>
+        </footer>
+    </div>
+
+{% endblock %}
